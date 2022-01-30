@@ -10,19 +10,15 @@ public class Main {
         Book[] books = new Book[]{book1, book2};
 
         User user1 = new User("Николай", "Басков");
-        Reader reader = user1;
-        Supplier supplier = user1;
         User user2 = new User("Жанна", "Агузарова");
-        Administrator administrator = user2;
-        Librarian librarian = user2;
 
-        reader.takeBook(book1, administrator);
-        administrator.findBook(book1);
-        administrator.giveBook(book1, reader);
-        administrator.notifyOfDelay(book1, reader);
-        reader.returnBook(book1, administrator);
-        librarian.orderBook(books, supplier);
-        supplier.deliveryBook(books, librarian);
+        user1.takeBook(book1, user2);
+        user2.findBook(book1);
+        user2.giveBook(book1, user1);
+        user2.notifyOfDelay(book1, user1);
+        user1.returnBook(book1, user2);
+        user2.orderBook(books, user1);
+        user1.deliveryBook(books, user2);
 
     }
 }
